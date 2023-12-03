@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
+import { SignInButton } from "@clerk/clerk-react";
 
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -32,6 +33,14 @@ export const Heading = () => {
             <ArrowRight className="h-4 w-4 ml-2"/>
           </Link>
         </Button>
+      )}
+      {!isAuthenticated && !isLoading && (
+        <SignInButton mode="modal">
+          <Button>
+            Get Jotion free
+            <ArrowRight className="h-4 w-4 ml-2"/>
+          </Button>
+        </SignInButton>
       )}
 
 
